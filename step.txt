@@ -5,8 +5,6 @@
 2. go to dashboard_code, run the command "npm install"
 (it will take some time, please wait)
 
-# 3. npm install --save @/plugins/blackDashboard
-
 3. npm run build
 
 4. npm run serve
