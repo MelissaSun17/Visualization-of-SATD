@@ -10,6 +10,10 @@ const Icons = () => import(/* webpackChunkName: "common" */ "@/pages/Icons.vue")
 const Maps = () => import(/* webpackChunkName: "common" */ "@/pages/Maps.vue");
 const Typography = () => import(/* webpackChunkName: "common" */ "@/pages/Typography.vue");
 const TableList = () => import(/* webpackChunkName: "common" */ "@/pages/TableList.vue");
+const TabOne = () => import(/* webpackChunkName: "common" */ "@/pages/tabOne.vue");
+const TabTwo = () => import(/* webpackChunkName: "common" */ "@/pages/tabTwo.vue");
+const TabThree = () => import(/* webpackChunkName: "common" */ "@/pages/tabThree.vue");
+const TabFour = () => import(/* webpackChunkName: "common" */ "@/pages/tabFour.vue");
 
 const routes = [
   {
@@ -51,6 +55,26 @@ const routes = [
         path: "table-list",
         name: "table-list",
         component: TableList
+      },
+      {
+        path: "tabOne",
+        name: "tabOne",
+        component: TabOne
+      },
+      {
+        path: "tabTwo",
+        name: "tabTwo",
+        component: TabTwo
+      },
+      {
+        path: "tabThree",
+        name: "tabThree",
+        component: TabThree
+      },
+      {
+        path: "tabFour",
+        name: "tabFour",
+        component: TabFour
       }
     ]
   },
