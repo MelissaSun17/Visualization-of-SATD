@@ -7,30 +7,30 @@
           :name="$t('Overview')"
           icon="tim-icons icon-chart-pie-36"
         />
-        <sidebar-link
+        <!-- <sidebar-link
           to="/icons"
           :name="$t('sidebar.icons')"
           icon="tim-icons icon-atom"
-        />
+        /> -->
         <sidebar-link
           to="/tabOne"
           :name="$t('tabOne')"
-          icon="tim-icons icon-atom"
+          icon="tim-icons icon-credit-card"
         />
         <sidebar-link
           to="/tabTwo"
           :name="$t('tabTwo')"
-          icon="tim-icons icon-atom"
+          icon="tim-icons icon-map-big"
         />
         <sidebar-link
           to="/tabThree"
           :name="$t('tabTwo')"
-          icon="tim-icons icon-atom"
+          icon="tim-icons icon-paper"
         />
         <sidebar-link
           to="/tabFour"
           :name="$t('tabTwo')"
-          icon="tim-icons icon-atom"
+          icon="tim-icons icon-components"
         />
         <!-- <sidebar-link
           to="/maps"
