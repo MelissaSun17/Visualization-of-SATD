@@ -4,7 +4,7 @@
       <template slot="links">
         <sidebar-link
           to="/dashboard"
-          :name="$t('sidebar.dashboard')"
+          :name="$t('Overview')"
           icon="tim-icons icon-chart-pie-36"
         />
         <sidebar-link
