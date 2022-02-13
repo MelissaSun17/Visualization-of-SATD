@@ -20,9 +20,9 @@
             <span class="navbar-toggler-bar bar3"></span>
           </button>
         </div>
-        <a class="navbar-brand" href="#pablo">{{ routeName }}</a>
+        <a class="navbar-brand" href="dashboard">{{ routeName }}</a>
       </div>
-      <button
+      <!-- <button
         class="navbar-toggler"
         type="button"
         @click="toggleMenu"
@@ -34,7 +34,7 @@
         <span class="navbar-toggler-bar navbar-kebab"></span>
         <span class="navbar-toggler-bar navbar-kebab"></span>
         <span class="navbar-toggler-bar navbar-kebab"></span>
-      </button>
+      </button> -->
 
       <collapse-transition>
         <div class="collapse navbar-collapse show" v-show="showMenu">
