@@ -19,7 +19,7 @@ import App from "./App";
 import router from "./router/index";
 import XLSX from 'xlsx';
 import Element from 'element-ui'
-
+import VueApexCharts from 'vue-apexcharts'
 import BlackDashboard from "./plugins/blackDashboard";
 import i18n from "./i18n"
 import './registerServiceWorker'
@@ -28,6 +28,7 @@ Vue.use(VueRouter);
 Vue.use(RouterPrefetch);
 Vue.use(XLSX);
 Vue.use(Element);
+Vue.use(VueApexCharts);
 
 /* eslint-disable no-new */
 new Vue({
@@ -35,3 +36,4 @@ new Vue({
   i18n,
   render: h => h(App)
 }).$mount("#app");
+Vue.component('apexchart', VueApexCharts)
