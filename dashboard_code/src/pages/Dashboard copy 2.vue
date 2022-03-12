@@ -1,8 +1,7 @@
 <template>
   <div>
     <div>
-      <upload-excel ref="uploadExcel">
-      </upload-excel>
+      <h1>Some summary charts? Or data?</h1>
     </div>
     <div class="row">
       <div class="col-12">
@@ -126,10 +125,9 @@ import LineChart from '@/components/Charts/LineChart'
 import BarChart from '@/components/Charts/BarChart'
 import * as chartConfigs from '@/components/Charts/config'
 import config from '@/config'
-import UploadExcel from '@/components/UploadExcel'
+
 export default {
   components: {
-    UploadExcel,
     LineChart,
     BarChart
   },

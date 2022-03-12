@@ -4,8 +4,9 @@
       id="excel-upload-input"
       ref="excel-upload-input"
       type="file"
-      accept=".xlsx, .xls"
+      accept=".xlsx, .xls, .csv"
       @change="handkeFileChange"
+      multiple
     />
     <div
       id="drop"
@@ -28,6 +29,8 @@
 <script>
 import XLSX from 'xlsx'
 import BaseButton from '@/components/BaseButton'
+import { mapGetters } from 'vuex'
+import myStorage from '@/store/sessionStorage'
 export default {
   components: { BaseButton },
   name: 'UploadExcel',
@@ -37,15 +40,50 @@ export default {
       excelData: {
         header: null,
         results: null
+      },
+      tabTwoData: {
+        header: null,
+        results: null
+      },
+      tabThreeData: {
+        header: null,
+        results: null
+      },
+      tabFourData: {
+        header: null,
+        results: null
       }
     }
   },
   methods: {
-    generateDate({ header, results }) {
+    generateDate({ header, results, fileName }) {
       debugger
       this.excelData.header = header
       this.excelData.results = results
-      this.$emit('on-selected-file', this.excelData)
+      if (fileName == 'tab1.csv' || fileName == 'tab1.xlsx') {
+        myStorage.setStorage('tabOne', this.excelData)
+        console.log(myStorage.getStorage('tabOne'))
+        // this.$setStorage('tabOne', this.excelData)
+        // this.$store.dispatch('changeTabOne', this.excelData)
+        // myStorage.setStorage()
+        console.log('this.$store.getters.tabOne', this.$store.getters.tabOne)
+      } else if (fileName == 'tab2.csv' || fileName == 'tab2.xlsx') {
+        this.$store.dispatch('changeTabTwo', this.tabTwoData)
+        console.log('this.$store.getters.tabTwo', this.$store.getters.tabTwo)
+      } else if (fileName == 'tab3.csv' || fileName == 'tab3.xlsx') {
+        this.$store.dispatch('changeTabThree', this.tabThreeData)
+        console.log(
+          'this.$store.getters.tabThree',
+          this.$store.getters.tabThree
+        )
+      } else if (fileName == 'tab4.csv' || fileName == 'tab4.xlsx') {
+        this.$store.dispatch('changeTabFour', this.tabFourData)
+        console.log('this.$store.getters.tabTwo', this.$store.getters.tabFour)
+      } else {
+        this.$store.dispatch('changeTabOne', this.excelData)
+        console.log('this.$store.getters.tabOne', this.$store.getters.tabOne)
+      }
+      // this.$emit('on-selected-file', this.excelData)
     },
     handleDrop(e) {
       e.stopPropagation()
@@ -56,7 +94,18 @@ export default {
         return
       }
       const itemFile = files[0] // only use files[0]
+      debugger
+      console.log(files)
       this.readerData(itemFile)
+      if (files[1]) {
+        this.readerData(files[1])
+      }
+      if (files[2]) {
+        this.readerData(files[2])
+      }
+      if (files[3]) {
+        this.readerData(files[3])
+      }
       e.stopPropagation()
       e.preventDefault()
     },
@@ -71,8 +120,20 @@ export default {
     handkeFileChange(e) {
       const files = e.target.files
       const itemFile = files[0] // only use files[0]
+      debugger
+      console.log(files)
+      //const fileTwo = files[1]
       if (!itemFile) return
       this.readerData(itemFile)
+      if (files[1]) {
+        this.readerData(files[1])
+      }
+      if (files[2]) {
+        this.readerData(files[2])
+      }
+      if (files[3]) {
+        this.readerData(files[3])
+      }
       this.$refs['excel-upload-input'].value = null // fix can't select the same excel
     },
     readerData(itemFile) {
@@ -85,7 +146,9 @@ export default {
         const worksheet = workbook.Sheets[firstSheetName]
         const header = this.get_header_row(worksheet)
         const results = XLSX.utils.sheet_to_json(worksheet)
-        this.generateDate({ header, results })
+        const fileName = itemFile.name
+        this.generateDate({ header, results, fileName })
+        // this.generateDate({ header, results, fileNum })
       }
       reader.readAsArrayBuffer(itemFile)
     },
