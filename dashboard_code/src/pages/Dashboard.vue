@@ -1,8 +1,7 @@
 <template>
   <div>
     <div>
-      <upload-excel ref="uploadExcel">
-      </upload-excel>
+      <upload-excel ref="uploadExcel"> </upload-excel>
     </div>
     <div class="row">
       <div class="col-12">

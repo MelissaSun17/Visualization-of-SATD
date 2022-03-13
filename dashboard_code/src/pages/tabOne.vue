@@ -106,7 +106,6 @@
                 type="date"
                 label="created In Date"
                 sortable
-                :formatter="dateformat"
               >
               </el-table-column>
               <el-table-column
@@ -114,7 +113,6 @@
                 type="date"
                 label="deleted In Date"
                 sortable
-                :formatter="dateformat1"
               >
               </el-table-column>
               <el-table-column
@@ -136,6 +134,7 @@ import UploadExcel from '@/components/UploadExcel'
 import { BaseTable } from '@/components'
 import { mapGetters } from 'vuex'
 import myStorage from '@/store/sessionStorage'
+import moment from 'moment'
 export default {
   components: { UploadExcel, BaseTable },
   data() {
@@ -183,16 +182,6 @@ export default {
     recentCreated() {
       this.tableList.sort(this.sortNumber('createdInDate'))
     },
-    // getDataFromChild(param) {
-    //   // this.dataList = param
-    //   // if (this.dataList) {
-    //   //   this.table2.columns = this.dataList.header
-    //   //   this.table2.dataRow = this.dataList.results
-    //   //   this.tableList = this.dataList.results
-    //   //   this.getOrNot = true
-    //   // }
-    //   this.getList()
-    // },
     getList() {
       this.dataList = myStorage.getStorage('tabOne')
       // this.dataList = this.$store.getters.tabOne
@@ -203,60 +192,9 @@ export default {
         this.getOrNot = true
       }
     },
-    timetrans(time) {
-      if (!time) {
-        return ''
-      } else {
-        const date = new Date(time * 1000)
-        const dateNumFun = (num) => (num < 10 ? `0${num}` : num)
-        const [Y, M, D, h, m, s] = [
-          date.getFullYear(),
-          dateNumFun(date.getMonth() + 1),
-          dateNumFun(date.getDate()),
-          dateNumFun(date.getHours()),
-          dateNumFun(date.getMinutes()),
-          dateNumFun(date.getSeconds())
-        ]
-        return `${Y}-${M}-${D} ${h}:${m}:${s}`
-      }
-    },
-    formatDate(numb) {
-      const time = new Date((numb - 1) * 24 * 3600000 + 1)
-      time.setYear(time.getFullYear() - 70)
-      const year = time.getFullYear()
-      const month = time.getMonth() + 1
-      const date = time.getDate()
-      var hour = time.getHours()
-      const min = time.getMinutes()
-      const sec = time.getSeconds()
-      // if (format && format.length === 1) {
-      //   return year + month + date + hour + min + sec
-      // }
-      // if (time.getHours() + 16 >= 24) {
-      //   hour = time.getHours() + 16 - 24
-      // }
-      return (
-        year +
-        '-' +
-        (month < 10 ? '0' + month : month) +
-        '-' +
-        (date < 10 ? '0' + date : date) +
-        ' ' +
-        (hour < 10 ? '0' + hour : hour) +
-        ':' +
-        (min < 10 ? '0' + min : min) +
-        ':' +
-        (sec < 10 ? '0' + sec : sec)
-      )
-    },
     dateformat(row, column) {
-      var date = row.createdInDate
-      if (!date) return ''
-      var result = this.formatDate(date)
-      return result
-    },
-    dateformat1(row, column) {
-      var date = row.deletedInDate
+      debugger
+      var date = row[column.property]
       if (!date) return ''
       var result = this.formatDate(date)
       return result

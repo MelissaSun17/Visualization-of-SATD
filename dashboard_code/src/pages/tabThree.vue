@@ -19,21 +19,18 @@
 
 <script>
 import AreaChart from '@/components/Charts/AreaChart.vue'
-
+import Card from '../components/Cards/Card.vue'
 export default {
   name: 'tabThree',
   components: {
-    AreaChart
+    AreaChart,
+    Card
   },
   data() {
-    return {
-      chartData: {
-        Books: 24,
-        Magazine: 30,
-        Newspapers: 10
-      }
-    }
-  }
+    return {}
+  },
+  mounted() {},
+  methods: {}
 }
 </script>
 

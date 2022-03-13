@@ -40,19 +40,19 @@ export default {
       excelData: {
         header: null,
         results: null
-      },
-      tabTwoData: {
-        header: null,
-        results: null
-      },
-      tabThreeData: {
-        header: null,
-        results: null
-      },
-      tabFourData: {
-        header: null,
-        results: null
       }
+      // tabTwoData: {
+      //   header: null,
+      //   results: null
+      // },
+      // tabThreeData: {
+      //   header: null,
+      //   results: null
+      // },
+      // tabFourData: {
+      //   header: null,
+      //   results: null
+      // }
     }
   },
   methods: {
@@ -66,22 +66,15 @@ export default {
         // this.$setStorage('tabOne', this.excelData)
         // this.$store.dispatch('changeTabOne', this.excelData)
         // myStorage.setStorage()
-        console.log('this.$store.getters.tabOne', this.$store.getters.tabOne)
       } else if (fileName == 'tab2.csv' || fileName == 'tab2.xlsx') {
-        this.$store.dispatch('changeTabTwo', this.tabTwoData)
-        console.log('this.$store.getters.tabTwo', this.$store.getters.tabTwo)
+        myStorage.setStorage('tabTwo', this.excelData)
       } else if (fileName == 'tab3.csv' || fileName == 'tab3.xlsx') {
-        this.$store.dispatch('changeTabThree', this.tabThreeData)
-        console.log(
-          'this.$store.getters.tabThree',
-          this.$store.getters.tabThree
-        )
+        myStorage.setStorage('tabThree', this.excelData)
+        console.log(myStorage.getStorage('tabThree'))
       } else if (fileName == 'tab4.csv' || fileName == 'tab4.xlsx') {
-        this.$store.dispatch('changeTabFour', this.tabFourData)
-        console.log('this.$store.getters.tabTwo', this.$store.getters.tabFour)
+        myStorage.setStorage('tabFour', this.excelData)
       } else {
         this.$store.dispatch('changeTabOne', this.excelData)
-        console.log('this.$store.getters.tabOne', this.$store.getters.tabOne)
       }
       // this.$emit('on-selected-file', this.excelData)
     },
@@ -141,11 +134,15 @@ export default {
       reader.onload = (e) => {
         const data = e.target.result
         const fixedData = this.fixdata(data)
-        const workbook = XLSX.read(btoa(fixedData), { type: 'base64' })
+        const workbook = XLSX.read(btoa(fixedData), {
+          type: 'base64',
+          cellDates: true,
+          dateNF: 'yyyy/mm/dd HH:mm:ss'
+        })
         const firstSheetName = workbook.SheetNames[0]
         const worksheet = workbook.Sheets[firstSheetName]
         const header = this.get_header_row(worksheet)
-        const results = XLSX.utils.sheet_to_json(worksheet)
+        const results = XLSX.utils.sheet_to_json(worksheet, { raw: false })
         const fileName = itemFile.name
         this.generateDate({ header, results, fileName })
         // this.generateDate({ header, results, fileNum })
