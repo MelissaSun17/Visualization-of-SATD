@@ -44,6 +44,14 @@
             >Top long life unhandled SATDs</base-button
           >
 
+          <base-button
+            style="margin-left: 16px"
+            size="mini"
+            type="default"
+            @click="reset"
+            >Reset</base-button
+          >
+
           <div>
             <el-table
               empty-text="no data now"
@@ -152,7 +160,6 @@ export default {
   },
   methods: {
     search() {
-      debugger
       var temp = []
       this.getList()
       if (this.searchFile) {
@@ -172,15 +179,39 @@ export default {
       }
     },
     LongLife() {
-      this.tableList.forEach((item) => {
-        if (item.deletedInDate) {
-          item.long = item.deletedInDate - item.createdInDate
-        } else item.long = Date.now() / 10000000 - item.createdInDate
+      // this.tableList.forEach((item) => {
+      //   if (item.deletedInDate) {
+      //     item.long = item.deletedInDate - item.createdInDate
+      //   } else item.long = Date.now() / 10000000 - item.createdInDate
+      // })
+      // this.tableList.sort(this.sortNumber('long'))
+      var temp = []
+      temp = this.tableList.filter((item) => {
+        if (!item.deletedInDate) {
+          item.long = Date.now() - new Date(item.createdInDate).valueOf()
+          return item
+        }
       })
-      this.tableList.sort(this.sortNumber('long'))
+      debugger
+      console.log(temp)
+      temp.sort(this.sortNumber('long'))
+      this.tableList = temp
     },
     recentCreated() {
-      this.tableList.sort(this.sortNumber('createdInDate'))
+      var temp = []
+      temp = this.tableList.filter((item) => {
+        if (!item.deletedInDate) {
+          item.createdDate = new Date(item.createdInDate).valueOf()
+          return item
+        }
+      })
+      debugger
+      console.log(temp)
+      temp.sort(this.sortNumber('createdDate'))
+      this.tableList = temp
+    },
+    reset() {
+      this.getList()
     },
     getList() {
       this.dataList = myStorage.getStorage('tabOne')
