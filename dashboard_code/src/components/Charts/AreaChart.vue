@@ -13,7 +13,9 @@ export default {
       createdSATD: [],
       deletedSATD: [],
       unhandledSATD: [],
-      labels: []
+      labels: [],
+      link: [],
+      chart: null
     }
   },
   mounted() {
@@ -32,7 +34,7 @@ export default {
     this.gradient2.addColorStop(0, 'rgba(0, 231, 255, 0.9)')
     this.gradient2.addColorStop(0.5, 'rgba(0, 231, 255, 0.25)')
     this.gradient2.addColorStop(1, 'rgba(0, 231, 255, 0)')
-
+    var _this = this
     this.renderChart(
       {
         labels: this.labels,
@@ -66,8 +68,17 @@ export default {
           }
         ]
       },
-      { responsive: true, maintainAspectRatio: false }
+      {
+        responsive: true,
+        maintainAspectRatio: false,
+        // interaction: {
+        //   mode: 'point',
+        //   onClick: this.myCustomMethod
+        // }
+        onClick: this.myCustomMethod
+      }
     )
+    this.chart = this.$data._chart
   },
   methods: {
     getList() {
@@ -84,11 +95,17 @@ export default {
           this.deletedSATD.push(item.deleted_SATD)
           this.unhandledSATD.push(item.unhandled_SATD)
           this.labels.push(item.commit_date)
+          this.link.push(item.commit_url)
         })
-        console.log(this.createdSATD)
-        console.log(this.deletedSATD)
-        console.log(this.unhandledSATD)
-        console.log(this.labels)
+      }
+    },
+    myCustomMethod(event, item) {
+      const element = this.chart.getElementAtEvent(event)
+      if (element && element.length > 0) {
+        var clickedIndex = element[0]['_index']
+        var jumpLink = this.link[clickedIndex]
+        // window.open(jumpLink)
+        window.open(jumpLink, '_blank')
       }
     }
   }
