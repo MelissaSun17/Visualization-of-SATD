@@ -1,10 +1,7 @@
 <template>
   <div>
     <div>
-      <!-- <upload-excel 
-          @on-selected-file="getDataFromChild"
-          ref="uploadExcel">
-        </upload-excel> -->
+      <h1>Table</h1>
     </div>
     <h4>
       <div class="col-12" v-if="getOrNot">

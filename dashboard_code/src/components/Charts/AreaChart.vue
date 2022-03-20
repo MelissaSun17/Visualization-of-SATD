@@ -71,7 +71,35 @@ export default {
       {
         responsive: true,
         maintainAspectRatio: false,
-        onClick: this.myCustomMethod
+        onClick: this.myCustomMethod,
+        legend: {
+          labels: {
+            fontColor: 'white'
+          }
+        },
+        scales: {
+          xAxes: [
+            {
+              // gridLines: {
+              //   display: false
+              // },
+              ticks: {
+                fontColor: '#CCC' // this here
+              }
+            }
+          ],
+          yAxes: [
+            {
+              // display: false,
+              // gridLines: {
+              //   display: false
+              // },
+              ticks: {
+                fontColor: '#CCC' // this here
+              }
+            }
+          ]
+        }
       }
     )
     this.chart = this.$data._chart

@@ -6,10 +6,11 @@
   </card> -->
     <card>
       <apexcharts
+        width="98%"
         type="treemap"
         :options="chartOptions"
         :series="series"
-        @click="myCustomMethod"
+        @dataPointSelection="myCustomMethod"
         v-if="getOrNot"
       ></apexcharts>
     </card>

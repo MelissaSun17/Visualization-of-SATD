@@ -1,9 +1,12 @@
 <template>
   <div>
+    <h1>Line Chart</h1>
     <card>
-      <div>
-        <AreaChart style="height: 100%" />
-      </div>
+      <h4>
+        <div>
+          <AreaChart height="600" />
+        </div>
+      </h4>
     </card>
   </div>
 </template>
