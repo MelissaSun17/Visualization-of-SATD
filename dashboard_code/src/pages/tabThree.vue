@@ -2,7 +2,7 @@
   <div>
     <card>
       <div>
-        <AreaChart @click="jump" />
+        <AreaChart style="height: 100%" />
       </div>
     </card>
   </div>

@@ -71,10 +71,6 @@ export default {
       {
         responsive: true,
         maintainAspectRatio: false,
-        // interaction: {
-        //   mode: 'point',
-        //   onClick: this.myCustomMethod
-        // }
         onClick: this.myCustomMethod
       }
     )
@@ -82,14 +78,9 @@ export default {
   },
   methods: {
     getList() {
-      debugger
       this.dataList = myStorage.getStorage('tabThree')
-      // this.dataList = this.$store.getters.tabOne
-      // debugger
       if (this.dataList) {
         this.tableList = JSON.parse(this.dataList).results
-        // this.tableList = this.dataList.results
-        // this.getOrNot = true
         this.tableList.forEach((item) => {
           this.createdSATD.push(item.created_SATD)
           this.deletedSATD.push(item.deleted_SATD)
@@ -100,6 +91,7 @@ export default {
       }
     },
     myCustomMethod(event, item) {
+      debugger
       const element = this.chart.getElementAtEvent(event)
       if (element && element.length > 0) {
         var clickedIndex = element[0]['_index']
