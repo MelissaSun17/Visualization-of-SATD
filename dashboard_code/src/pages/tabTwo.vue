@@ -12,6 +12,7 @@
         :series="series"
         @dataPointSelection="myCustomMethod"
         v-if="getOrNot"
+        class="xxx"
       ></apexcharts>
     </card>
   </div>
@@ -41,11 +42,32 @@ export default {
         legend: {
           show: false
         },
+        dataLabels: {
+          enabled: true,
+          style: {
+            fontSize: '40',
+            colors: ['#fff']
+          }
+        },
+        // dataLabels: {
+        //   enabled: true,
+        //   style: {
+        //     color: undefined,
+        //     fontSize: '14px',
+        //     fontFamily: undefined
+        //   }
+        // },
         colors: [],
         plotOptions: {
           treemap: {
             distributed: true,
             enableShades: false
+          }
+        },
+        tooltip: {
+          style: {
+            fontSize: '30px',
+            fontFamily: undefined
           }
         }
       },
@@ -88,4 +110,7 @@ export default {
 }
 </script>
 <style>
+.xxx {
+  font-size: 20px;
+}
 </style>

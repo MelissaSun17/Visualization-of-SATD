@@ -12,7 +12,7 @@
       <div id="chart">
         <apexchart
           type="bar"
-          height="350"
+          height="600"
           :options="chartOptions"
           :series="series"
         ></apexchart>
@@ -69,11 +69,21 @@ export default {
           opacity: 1
         },
         tooltip: {
-          y: {
-            formatter: function (val) {
-              return val
-            }
+          enabled: true,
+          shared: true,
+          intersect: false,
+          style: {
+            fontSize: '20px',
+            fontFamily: undefined
           }
+          // items: {
+          //   display: 'flex'
+          // },
+          // y: {
+          //   formatter: function (val) {
+          //     return val
+          //   }
+          // }
         }
       }
     }

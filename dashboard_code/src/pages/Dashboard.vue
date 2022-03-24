@@ -4,7 +4,7 @@
     <div>
       <upload-excel ref="uploadExcel"> </upload-excel>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-12">
         <card type="chart">
           <template slot="header">
@@ -118,7 +118,7 @@
           </div>
         </card>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
