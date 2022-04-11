@@ -4,7 +4,7 @@
     <card>
       <h4>
         <div>
-          <AreaChart height="600" />
+          <AreaChart height="500" />
         </div>
       </h4>
     </card>

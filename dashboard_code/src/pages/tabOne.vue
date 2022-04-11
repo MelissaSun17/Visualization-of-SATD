@@ -57,7 +57,7 @@
               style="width: 100%"
               size="medium"
             >
-              <el-table-column prop="index" label="index" sortable width="80px">
+              <el-table-column prop="index" label="index" sortable width="70px">
               </el-table-column>
               <el-table-column
                 prop="createdInFile"

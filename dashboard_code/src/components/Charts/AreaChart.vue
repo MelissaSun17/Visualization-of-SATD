@@ -109,12 +109,14 @@ export default {
       this.dataList = myStorage.getStorage('tabThree')
       if (this.dataList) {
         this.tableList = JSON.parse(this.dataList).results
-        this.tableList.forEach((item) => {
-          this.createdSATD.push(item.created_SATD)
-          this.deletedSATD.push(item.deleted_SATD)
-          this.unhandledSATD.push(item.unhandled_SATD)
-          this.labels.push(item.commit_date)
-          this.link.push(item.commit_url)
+        this.tableList.forEach((item, index) => {
+          if (Number(index) % 100 == 0) {
+            this.createdSATD.push(item.created_SATD)
+            this.deletedSATD.push(item.deleted_SATD)
+            this.unhandledSATD.push(item.unhandled_SATD)
+            this.labels.push(item.commit_date)
+            this.link.push(item.commit_url)
+          }
         })
       }
     },
