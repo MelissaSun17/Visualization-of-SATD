@@ -1,7 +1,7 @@
 # Visualization-of-SATD
 
 
-## Steps for running the front end project: 
+## Steps for running this project: 
 1. clone all codes locally
 
 > ps: if you don't have node.js, please download and install node.js first
