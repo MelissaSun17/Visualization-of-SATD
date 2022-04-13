@@ -76,14 +76,6 @@ export default {
             fontSize: '20px',
             fontFamily: undefined
           }
-          // items: {
-          //   display: 'flex'
-          // },
-          // y: {
-          //   formatter: function (val) {
-          //     return val
-          //   }
-          // }
         }
       }
     }
@@ -101,14 +93,10 @@ export default {
           this.handledP.push(item.handled_SATD_p)
           this.unhandled.push(item.unhandled_SATD)
           this.unhandledP.push(item.unhandled_SATD_p)
-          // this.chartOptions.xaxis.categories.push(item.under_age)
         })
       }
       this.series.push({ name: 'handled SATD', data: this.handled })
       this.series.push({ name: 'unhandled SATD', data: this.unhandled })
-      console.log(this.handled)
-      // this.getOrNot = true
-      // this.$forceUpdate()
     }
   }
 }

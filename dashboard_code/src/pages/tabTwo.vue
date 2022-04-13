@@ -12,7 +12,6 @@
         :series="series"
         @dataPointSelection="myCustomMethod"
         v-if="getOrNot"
-        class="xxx"
       ></apexcharts>
     </card>
   </div>
@@ -49,14 +48,6 @@ export default {
             colors: ['#fff']
           }
         },
-        // dataLabels: {
-        //   enabled: true,
-        //   style: {
-        //     color: undefined,
-        //     fontSize: '14px',
-        //     fontFamily: undefined
-        //   }
-        // },
         colors: [],
         plotOptions: {
           treemap: {
@@ -95,8 +86,6 @@ export default {
           this.link.push(item.file_url)
         })
       }
-      console.log(this.chartOptions.colors)
-      console.log(this.series[0].data)
       this.getOrNot = true
       this.$forceUpdate()
     },

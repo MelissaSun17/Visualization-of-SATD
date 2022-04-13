@@ -176,12 +176,6 @@ export default {
       }
     },
     LongLife() {
-      // this.tableList.forEach((item) => {
-      //   if (item.deletedInDate) {
-      //     item.long = item.deletedInDate - item.createdInDate
-      //   } else item.long = Date.now() / 10000000 - item.createdInDate
-      // })
-      // this.tableList.sort(this.sortNumber('long'))
       var temp = []
       temp = this.tableList.filter((item) => {
         if (!item.deletedInDate) {
@@ -212,11 +206,8 @@ export default {
     },
     getList() {
       this.dataList = myStorage.getStorage('tabOne')
-      // this.dataList = this.$store.getters.tabOne
-      // debugger
       if (this.dataList) {
         this.tableList = JSON.parse(this.dataList).results
-        // this.tableList = this.dataList.results
         this.getOrNot = true
       }
     },
