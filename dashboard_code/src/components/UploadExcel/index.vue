@@ -82,13 +82,10 @@ export default {
       e.stopPropagation()
       e.preventDefault()
       const files = e.dataTransfer.files
-      if (files.length !== 1) {
-        this.$message.error('Only support uploading one file!')
-        return
-      }
-      const itemFile = files[0] // only use files[0]
-      debugger
-      console.log(files)
+      const itemFile = files[0]
+      if (!itemFile) return
+      // TODO: make the page able to read more than 4 files
+      // TODO: able to upload zip file and analyze
       this.readerData(itemFile)
       if (files[1]) {
         this.readerData(files[1])
@@ -112,10 +109,7 @@ export default {
     },
     handkeFileChange(e) {
       const files = e.target.files
-      const itemFile = files[0] // only use files[0]
-      debugger
-      console.log(files)
-      //const fileTwo = files[1]
+      const itemFile = files[0]
       if (!itemFile) return
       this.readerData(itemFile)
       if (files[1]) {
