@@ -25,16 +25,16 @@ A drop box is set here for users to upload files. User can upload one or more .x
 
 Below are an example for rollor project showing what the tab pages will look like once the user uploads files.
 ![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/one.png)
-Figure 2. Tab one
+Figure 2. ALL SATDS INFO
 
 ![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/two.png)
-Figure 3. Tab two
+Figure 3. INFO VISUALIZATION
 
 ![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/three.png)
-Figure 4. Tab three
+Figure 4. LONGRUN TREND
 
 ![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/four.png)
-Figure 5. Tab four
+Figure 5. HANDLING SPEED
 
 ## Contributions
 
