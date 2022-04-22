@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1>Bar Chart</h1>
+    <h1>Handling Speed of SATDs</h1>
     <h3>
     Instruction:</br>
-    ‘Handled SATDs’ indicates the frequency of SATDs handled within one day/one week/one month/
+    Frequency of handling SATDs: indicates the frequency of SATDs handled within one day/one week/one month/
     one year/over one year, separately.</br>
-    ‘Unhandled SATDs’ indicates the frequency of unhandled SATDs that have existed 
+    Frequency of lefting SATDs: indicates the frequency of unhandled SATDs that have existed 
     one day/one week/one month/one year/over one year.</br></br>
     Tip:</br>
     To quickly see the number of handled SATDs/unhandled SATDs, hover your mouse pointer over the bar.</br>

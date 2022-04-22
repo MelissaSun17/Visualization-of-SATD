@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Tree Map</h1>
+    <h1>Information Visualization</h1>
     <h3>
         Instruction:</br>
         Each sub-rectangle represents a file of the project.</br>

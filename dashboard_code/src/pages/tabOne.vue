@@ -1,12 +1,12 @@
 <template>
   <div>
     <div>
-      <h1>Table</h1>
+      <h1>All SATD information</h1>
     </div>
     <h4>
       <div class="col-12" v-if="getOrNot">
         <card>
-          <h3>All SATDs:</h3>
+          <h3>Table</h3>
           <div class="row">
             <div class="col-md-5 pr-md-1">
               <base-input

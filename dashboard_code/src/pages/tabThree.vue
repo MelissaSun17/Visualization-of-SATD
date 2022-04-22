@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Line Chart</h1>
+    <h1>Longrun Trend</h1>
     <h3>
       Instruction:</br>
       This chart demonstrates the variation in SATD frequency over commit dates. </br></br>
