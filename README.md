@@ -16,7 +16,7 @@ This version is the stable one.
 4. npm run serve
 
 ## For usage
-![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/main%20page.png)
+![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/overview.png)
 Figure 1. Main page
 
 This is the main page.
@@ -24,16 +24,16 @@ This is the main page.
 A drop box is set here for users to upload files. User can upload one or more .xlsx/.csv files. The web application will read from those files, store the data, and generate the tables and charts for other tab pages. There are two ways the user can upload the files. One is dragging the file to this page, and another way is to browse from their computer. The browse part is a button that the user can click, once click, an open file window will jump out for user to choose the files they want to upload. 
 
 Below are an example for rollor project showing what the tab pages will look like once the user uploads files.
-![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/tab%20one.png)
+![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/one.png)
 Figure 2. Tab one
 
-![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/tab%20two.png)
+![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/two.png)
 Figure 3. Tab two
 
-![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/tab%20three.png)
+![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/three.png)
 Figure 4. Tab three
 
-![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/tab%20four.png)
+![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/four.png)
 Figure 5. Tab four
 
 ## Contributions
