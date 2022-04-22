@@ -17,7 +17,7 @@ This version is the stable one.
 
 ## For usage
 ![image](https://github.com/MelissaSun17/Visualization-of-SATD/blob/main/images/overview.png)
-Figure 1. Main page
+Figure 1. OVERVIEW
 
 This is the main page.
 
