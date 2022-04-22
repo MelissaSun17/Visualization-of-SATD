@@ -135,13 +135,20 @@
 </template>
 <script>
 import XLSX from 'xlsx'
+import { Table, TableColumn } from 'element-ui'
 import UploadExcel from '@/components/UploadExcel'
-import { BaseTable } from '@/components'
+// import { BaseTable } from '@/components'
 import { mapGetters } from 'vuex'
 import myStorage from '@/store/sessionStorage'
 import moment from 'moment'
+
 export default {
-  components: { UploadExcel, BaseTable },
+  components: {
+    UploadExcel,
+    // BaseTable
+    elTable: Table,
+    elTableColumn: TableColumn
+  },
   data() {
     return {
       searchFile: '',

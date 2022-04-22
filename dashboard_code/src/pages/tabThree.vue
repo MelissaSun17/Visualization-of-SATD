@@ -1,6 +1,14 @@
 <template>
   <div>
     <h1>Line Chart</h1>
+    <h3>
+      Instruction:</br>
+      This chart demonstrates the variation in SATD frequency over commit dates. </br></br>
+      Tips:</br>
+      To quickly check the exact #STADs/#handled STADs/#unhandled STADs, hover your mouse pointer over the node. </br>
+      To redirect to the source code of a commit, click the node.</br>
+      To enable/disable a line, click the legend above the chart.</br>
+    </h3>
     <card>
       <h4>
         <div>

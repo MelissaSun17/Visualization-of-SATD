@@ -1,22 +1,24 @@
+
 import Vue from "vue";
-import App from "./App";
 import VueRouter from "vue-router";
 import RouterPrefetch from 'vue-router-prefetch'
+import App from "./App";
 import router from "./router/index";
 import BlackDashboard from "./plugins/blackDashboard";
 import i18n from "./i18n"
 import './registerServiceWorker'
 import XLSX from 'xlsx';
-import Element from 'element-ui'
-import VueApexCharts from 'vue-apexcharts'
-import myStorage from './store/sessionStorage' 
-import store from '@/store'
+// import 'element-ui/lib/theme-chalk/index.css';
+// import Element from 'element-ui'
+// Vue.use(Element);
+import VueApexCharts from 'vue-apexcharts';
+import myStorage from './store/sessionStorage';
+import store from '@/store';
 
 Vue.use(BlackDashboard);
 Vue.use(VueRouter);
 Vue.use(RouterPrefetch);
 Vue.use(XLSX);
-Vue.use(Element);
 Vue.use(VueApexCharts);
 Vue.prototype.$storage = myStorage
 

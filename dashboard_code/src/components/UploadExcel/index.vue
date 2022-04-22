@@ -31,6 +31,9 @@ import XLSX from 'xlsx'
 import BaseButton from '@/components/BaseButton'
 import { mapGetters } from 'vuex'
 import myStorage from '@/store/sessionStorage'
+// import { Notification, MessageBox } from 'element-ui'
+import Success from '@/pages/Notifications/Success'
+import Fail from '@/pages/Notifications/Fail'
 export default {
   components: { BaseButton },
   name: 'UploadExcel',
@@ -41,40 +44,40 @@ export default {
         header: null,
         results: null
       }
-      // tabTwoData: {
-      //   header: null,
-      //   results: null
-      // },
-      // tabThreeData: {
-      //   header: null,
-      //   results: null
-      // },
-      // tabFourData: {
-      //   header: null,
-      //   results: null
-      // }
     }
   },
   methods: {
+    notifyVue(verticalAlign, horizontalAlign, typeIn, template) {
+      const color = Math.floor(Math.random() * 4 + 1)
+      this.$notify({
+        component: template,
+        icon: 'tim-icons icon-bell-55',
+        horizontalAlign: horizontalAlign,
+        verticalAlign: verticalAlign,
+        type: typeIn,
+        timeout: 0
+      })
+    },
     generateDate({ header, results, fileName }) {
       debugger
       this.excelData.header = header
       this.excelData.results = results
       if (fileName == 'tab1.csv' || fileName == 'tab1.xlsx') {
         myStorage.setStorage('tabOne', this.excelData)
-        console.log(myStorage.getStorage('tabOne'))
-        // this.$setStorage('tabOne', this.excelData)
-        // this.$store.dispatch('changeTabOne', this.excelData)
-        // myStorage.setStorage()
+        this.notifyVue('top', 'center', 'success', Success)
       } else if (fileName == 'tab2.csv' || fileName == 'tab2.xlsx') {
         myStorage.setStorage('tabTwo', this.excelData)
+        this.notifyVue('top', 'center', 'success', Success)
       } else if (fileName == 'tab3.csv' || fileName == 'tab3.xlsx') {
         myStorage.setStorage('tabThree', this.excelData)
         console.log(myStorage.getStorage('tabThree'))
+        this.notifyVue('top', 'center', 'success', Success)
       } else if (fileName == 'tab4.csv' || fileName == 'tab4.xlsx') {
         myStorage.setStorage('tabFour', this.excelData)
+        this.notifyVue('top', 'center', 'success', Success)
       } else {
-        this.$store.dispatch('changeTabOne', this.excelData)
+        this.notifyVue('top', 'center', 'warning', Fail)
+        // this.$store.dispatch('changeTabOne', this.excelData)
       }
       // this.$emit('on-selected-file', this.excelData)
     },
@@ -83,7 +86,10 @@ export default {
       e.preventDefault()
       const files = e.dataTransfer.files
       const itemFile = files[0]
-      if (!itemFile) return
+      if (!itemFile) {
+        this.notifyVue('top', 'center', 'warning', Fail)
+        return
+      }
       // TODO: make the page able to read more than 4 files
       // TODO: able to upload zip file and analyze
       this.readerData(itemFile)
@@ -110,7 +116,10 @@ export default {
     handkeFileChange(e) {
       const files = e.target.files
       const itemFile = files[0]
-      if (!itemFile) return
+      if (!itemFile) {
+        this.notifyVue('top', 'center', 'warning', Fail)
+        return
+      }
       this.readerData(itemFile)
       if (files[1]) {
         this.readerData(files[1])
@@ -193,5 +202,9 @@ export default {
   color: #bbb;
   margin-left: 0px;
   margin-bottom: 20px;
+}
+
+#el-message-box__wrapper {
+  position: float;
 }
 </style>

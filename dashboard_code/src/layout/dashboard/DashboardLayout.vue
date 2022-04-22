@@ -14,22 +14,22 @@
         /> -->
         <sidebar-link
           to="/tabOne"
-          :name="$t('tab One')"
+          :name="$t('All SATDs info')"
           icon="tim-icons icon-credit-card"
         />
         <sidebar-link
           to="/tabTwo"
-          :name="$t('tab Two')"
+          :name="$t('info visualization')"
           icon="tim-icons icon-map-big"
         />
         <sidebar-link
           to="/tabThree"
-          :name="$t('tab Three')"
+          :name="$t('longrun trend')"
           icon="tim-icons icon-paper"
         />
         <sidebar-link
           to="/tabFour"
-          :name="$t('tab Four')"
+          :name="$t('handling speed')"
           icon="tim-icons icon-components"
         />
         <!-- <sidebar-link

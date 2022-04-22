@@ -1,9 +1,17 @@
 <template>
   <div>
     <h1>Tree Map</h1>
-    <!-- <card>
-      <TreeMap />
-  </card> -->
+    <h3>
+        Instruction:</br>
+        Each sub-rectangle represents a file of the project.</br>
+        The area of a rectangle is determined by its #unhandled STADs. </br>
+        The greater the number of unhandled STADs the file contains, the larger the area allocated to a file.</br>
+        The color of a rectangle is determined by the average age of its unhandled STADs. </br>
+        A file with a longer average age of unhandled STADs has a darker color; 
+        conversely, A file with a shorter average age of unhandled STADs has a lighter color.</br></br>
+        Tip:</br>
+        To preview the exact #unhandled STADs and their average ages of a file, hover your mouse pointer over. 
+    </h3>
     <card>
       <apexcharts
         width="98%"
